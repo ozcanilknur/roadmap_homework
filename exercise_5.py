@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-
 #1.UTM settings on Newsletter design page:
 UTM_settings = (By.CSS_SELECTOR, "label[for='enableUtmSettings']")
 # for check console $$("label[for='enableUtmSettings']")
