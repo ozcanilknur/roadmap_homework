@@ -14,6 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 #5.Sepet sayfasına gidin.
 #6.Anasayfaya geri dönün.
 
+
 class Test(unittest.TestCase):
 
     def basicSeleniumProject(self):
