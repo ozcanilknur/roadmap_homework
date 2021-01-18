@@ -1,6 +1,7 @@
 
 
 class Ogrenci:
+
     def __init__(self, ogrenciAdi, ogrenciSoyadi, ogrenciSinif):
         self.ogrenciAdi = ogrenciAdi
         self.ogrenciSoyadi = ogrenciSoyadi
@@ -8,39 +9,35 @@ class Ogrenci:
 
     def OgrenciBilgi(self):
 
-        self.ogrenciSinif = input("Ogrenci Sinifi: ")
-        self.ogrenciAdi = input("Ogrenci Adi:")
-        self.ogrenciSoyadi = input("Ogrenci Soyadi:")
-        return self.ogrenciSoyadi +" "+ self.ogrenciAdi +" "+ self.ogrenciSinif+". sinif"
+        self.ogrenciSinif = input("Öğrenci Sınıfı Giriniz: ")
+        self.ogrenciAdi = input("Öğrenci Adı Giriniz:")
+        self.ogrenciSoyadi = input("Öğrenci Soyadı Giriniz:")
+        return self.ogrenciSoyadi + " " + self.ogrenciAdi + " " + self.ogrenciSinif+". Sınıf"
 
 
 class Soru:
 
-    def NetSayisi(self):
-        while(True):
-            self.dogru = int(input("Dogru Sayisi:"))
-            self.yanlis = int(input("Yanlis Sayisi:"))
-            if self.dogru+self.yanlis > 100:
-                print("Lütfen 100 soruluk dogru yanlis degeri girin.")
-                Soru().NetSayisi()
-
+    def __init__(self):
+        while True:
+            self.dogru = int(input("Öğrenci doğru sayısı : "))
+            self.yanlis = int(input("Öğrenci yanlış sayısı: "))
+            sorusayisi = self.yanlis+self.dogru
+            if sorusayisi > 50:
+                print("Lütfen 50 soruluk dogru yanlis degeri girin.")
+                continue
             else:
-                global netsonuc
-                netsonuc = self.dogru - (self.yanlis/4)
-            return int(netsonuc)
+                break
 
-    def Hesapla(self):
-        puan = netsonuc*10
-        return int(puan)
+    def NetSayisi(self):
 
+        netsonuc = self.dogru - (self.yanlis/4)
+        print("Öğrenci net sayısı : ", netsonuc)
+        return netsonuc
 
+    def Hesapla(self, netsonuc):
+        puan = netsonuc*2
+        return puan
 
-print("\n Sonuclar: \n ", Ogrenci("s","s","s").OgrenciBilgi(), "Net:" ,Soru().NetSayisi(), "Puan:", Soru().Hesapla())
-
-
-
-
-
-
-
-
+Soru1 = Soru()
+print("\n Sonuçlar: \n" + Ogrenci("s","s","s").OgrenciBilgi())
+print("Öğrenci Puanı : ", Soru1.Hesapla(Soru1.NetSayisi()))
